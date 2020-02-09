@@ -54,11 +54,11 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UINavigationBar.appearance().isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UINavigationBar.appearance().isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: - Handle Presenter Output
