@@ -43,6 +43,48 @@
                                     <action selector="filtersButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QqR-7F-c0U"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wbA-WX-4gU">
+                                <rect key="frame" x="5" y="250" width="365" height="363"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="363" id="4PJ-fZ-Lv0"/>
+                                    <constraint firstAttribute="width" constant="365" id="gPs-pH-58W"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y93-vU-thF">
+                                    <size key="itemSize" width="97" height="124"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieGridCell" id="dDA-uB-x3W" customClass="MovieGridCell" customModule="IMDbAPI_VIPER" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-rg-Ris">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="tUl-rg-Ris" secondAttribute="trailing" id="00I-Uo-fby"/>
+                                            <constraint firstAttribute="bottom" secondItem="tUl-rg-Ris" secondAttribute="bottom" id="iSZ-Jr-nFm"/>
+                                            <constraint firstItem="tUl-rg-Ris" firstAttribute="top" secondItem="dDA-uB-x3W" secondAttribute="top" id="mw9-NF-S4G"/>
+                                            <constraint firstItem="tUl-rg-Ris" firstAttribute="leading" secondItem="dDA-uB-x3W" secondAttribute="leading" id="ndD-Pe-tLu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="tUl-rg-Ris" id="BJp-fI-oFC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CDd-qk-1yH"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VhX-X3-eeR"/>
+                                </connections>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPQ-3Z-qxx" customClass="RoundedView" customModule="TMDbAPI_VIPER" customModuleProvider="target">
                                 <rect key="frame" x="20" y="250" width="335" height="128"/>
                                 <subviews>
@@ -175,48 +217,6 @@
                                     <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xVy-LI-EPN"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wbA-WX-4gU">
-                                <rect key="frame" x="5" y="250" width="365" height="363"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="363" id="4PJ-fZ-Lv0"/>
-                                    <constraint firstAttribute="width" constant="365" id="gPs-pH-58W"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y93-vU-thF">
-                                    <size key="itemSize" width="97" height="124"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieGridCell" id="dDA-uB-x3W" customClass="MovieGridCell" customModule="IMDbAPI_VIPER" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-rg-Ris">
-                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="tUl-rg-Ris" secondAttribute="trailing" id="00I-Uo-fby"/>
-                                            <constraint firstAttribute="bottom" secondItem="tUl-rg-Ris" secondAttribute="bottom" id="iSZ-Jr-nFm"/>
-                                            <constraint firstItem="tUl-rg-Ris" firstAttribute="top" secondItem="dDA-uB-x3W" secondAttribute="top" id="mw9-NF-S4G"/>
-                                            <constraint firstItem="tUl-rg-Ris" firstAttribute="leading" secondItem="dDA-uB-x3W" secondAttribute="leading" id="ndD-Pe-tLu"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="posterImageView" destination="tUl-rg-Ris" id="BJp-fI-oFC"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CDd-qk-1yH"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VhX-X3-eeR"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
