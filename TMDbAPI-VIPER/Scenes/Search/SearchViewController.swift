@@ -48,6 +48,10 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
         configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: - Handle Presenter Output
     
     func handleOutput(_ output: SearchPresenterOutput) {
@@ -77,9 +81,6 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
         presenter.getTypeDatas()
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
     private func showFilterView() {
         UIView.animate(withDuration: 0.5,

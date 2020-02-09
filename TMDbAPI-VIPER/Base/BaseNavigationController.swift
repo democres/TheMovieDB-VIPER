@@ -14,12 +14,14 @@ class BaseNavigationController: UINavigationController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        UITabBar.appearance().barTintColor =  UIColor(hexString: "#081c24")
+        UITabBar.appearance().tintColor = .white
     }
     
     private func configureNavigationBar() {
         navigationBar.barTintColor = UIColor(hexString: "#081c24")
         navigationBar.tintColor = .black
-        navigationBar.alpha = 1
+        navigationBar.alpha = 0
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationBar.titleTextAttributes = textAttributes
