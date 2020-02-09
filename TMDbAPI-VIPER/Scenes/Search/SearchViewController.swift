@@ -295,14 +295,17 @@ extension SearchViewController: UIPickerViewDataSource {
 // MARK: - UIPickerViewDelegate
 
 extension SearchViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+
         switch currentPickerViewType {
         case .type:
-            return types[row]
+            return NSAttributedString(string: types[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         case .year:
-            return years[row]
+            return NSAttributedString(string: years[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         }
     }
+    
 }
 
 enum PickerViewType {
@@ -323,9 +326,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
-        
         let movie = self.mediaArray?[indexPath.item]
-        
         let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + (movie?.poster ?? ""))
 
         cell.posterImageView?.af_setImage(withURL: baseUrl!)
