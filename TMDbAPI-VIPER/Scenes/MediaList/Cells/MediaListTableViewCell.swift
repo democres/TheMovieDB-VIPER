@@ -1,9 +1,9 @@
 //
 //  MediaListTableViewCell.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by Furkan Kurnaz on 23.05.2019.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import UIKit
@@ -24,6 +24,6 @@ class MediaListTableViewCell: UITableViewCell {
     func setView(title: String, type: String, imageURL: String) {
         titleLabel.text = title
         typeLabel.text = type
-        mediaImageView.kf.setImage(with: URL(string: imageURL))
+        mediaImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL))
     }
 }

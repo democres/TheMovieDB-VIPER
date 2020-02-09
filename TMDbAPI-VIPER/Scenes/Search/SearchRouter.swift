@@ -1,9 +1,9 @@
 //
 //  SearchRouter.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 27.01.2020.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import UIKit
@@ -18,8 +18,8 @@ final class SearchRouter: SearchRouterProtocol {
     
     func navigate(to route: SearchRoute) {
         switch route {
-        case .list(let searchModel):
-            let listView = MediaListBuilder.make(media: searchModel)
+        case .list(let mediaArray):
+            let listView = MediaListBuilder.make(media: mediaArray)
             view.show(listView, sender: nil)
         }
     }

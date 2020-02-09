@@ -1,30 +1,40 @@
 PODS:
   - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
   - Kingfisher (5.7.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
+  - ObjectMapper (3.5.1)
   - Result (4.1.0)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 3.5)
   - Kingfisher
   - Moya
+  - ObjectMapper (~> 3.4)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Kingfisher
     - Moya
     - Result
+  trunk:
+    - AlamofireImage
+    - ObjectMapper
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
-PODFILE CHECKSUM: 6688390a2ec77fb64a26397ab56379eb1eeed496
+PODFILE CHECKSUM: 649bcdd5253c3f8a119409033bc3c0da9ca4408c
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

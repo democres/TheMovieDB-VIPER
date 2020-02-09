@@ -1,9 +1,9 @@
 //
 //  SearchPresenter.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 27.01.2020.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import Foundation
@@ -23,7 +23,7 @@ final class SearchPresenter: SearchPresenterProtocol {
         
         self.interactor.delegate = self
         
-        view.handleOutput(.updateTitle("IMDb Search"))
+        view.handleOutput(.updateTitle("TMDb Search"))
     }
     
     func getYearDatas() {
@@ -38,6 +38,10 @@ final class SearchPresenter: SearchPresenterProtocol {
         interactor.load(title: title, type: type, year: year)
     }
     
+    func loadMovies() {
+        interactor.loadMovies()
+    }
+    
     func validateNameField(name: String?) {
         if let name = name {
             if name.count > 0 {
@@ -50,7 +54,7 @@ final class SearchPresenter: SearchPresenterProtocol {
         }
     }
     
-    func showMediaList(medias: SearchModel) {
+    func showMediaList(medias: [Media]) {
         router.navigate(to: .list(medias))
     }
 }
@@ -60,6 +64,8 @@ extension SearchPresenter: SearchInteractorDelegate {
         switch output {
         case .setLoading(let isLoading):
             view.handleOutput(.setLoading(isLoading))
+        case .allMovies(let movies):
+            view.handleOutput(.allMovies(movies))
         case .getMediaList(let medias):
             view.handleOutput(.getMediaList(medias))
         case .showYears(let years):

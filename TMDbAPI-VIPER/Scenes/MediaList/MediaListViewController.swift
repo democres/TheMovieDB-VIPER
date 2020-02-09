@@ -1,9 +1,9 @@
 //
 //  MediaListViewController.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created Furkan Kurnaz on 23.05.2019.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 
@@ -15,9 +15,9 @@ class MediaListViewController: UIViewController {
     
     var presenter: MediaListPresenter!
     
-    var medias: SearchModel?
+    var medias: [Media]?
 
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter.load()
@@ -31,7 +31,7 @@ class MediaListViewController: UIViewController {
 }
 
 extension MediaListViewController: MediaListViewProtocol {
-    func update(presentation: SearchModel) {
+    func update(presentation: [Media]) {
         self.medias = presentation
         tableView.reloadData()
     }
@@ -43,17 +43,14 @@ extension MediaListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medias?.search.count ?? 0
+        return medias?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let title: String = medias?.search[indexPath.row].title ?? ""
-        let type: String = medias?.search[indexPath.row].type ?? ""
-        let imageURL: String = medias?.search[indexPath.row].poster ?? ""
-        
+        let movie = self.medias?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MediaListTableViewCell
         
-        cell.setView(title: title, type: type, imageURL: imageURL)
+        cell.setView(title: movie?.title ?? "", type: movie?.overview ?? "" , imageURL: movie?.poster ?? "")
         
         return cell
     }

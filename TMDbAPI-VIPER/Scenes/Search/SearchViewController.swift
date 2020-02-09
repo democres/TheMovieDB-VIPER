@@ -1,12 +1,13 @@
 //
 //  SearchViewController.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 27.01.2020.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import UIKit
+import AlamofireImage
 
 final class SearchViewController: UIViewController, SeachViewProtocol {
     
@@ -21,6 +22,8 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
     @IBOutlet weak var pickerContentView: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // MARK: - Properties
     
     private var types: [String] = []
@@ -31,6 +34,8 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
     
     private var selectedType: String = ""
     private var selectedYear: String = ""
+    
+    var mediaArray: [Media]?
     
     private var isValidName: Bool = false {
         didSet {
@@ -49,13 +54,20 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+        UINavigationBar.appearance().isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UINavigationBar.appearance().isHidden = false
     }
     
     // MARK: - Handle Presenter Output
     
     func handleOutput(_ output: SearchPresenterOutput) {
         switch output {
+        case .allMovies(let movies):
+            self.mediaArray = movies
+            self.collectionView.reloadData()
         case .updateTitle(let title):
             self.title = title
         case .setLoading(let isLoading):
@@ -79,8 +91,44 @@ final class SearchViewController: UIViewController, SeachViewProtocol {
         hidePickerView()
         presenter.getYearDatas()
         presenter.getTypeDatas()
+        
+        presenter.loadMovies()
+        
+        
+       //MOVIE GRID LAYOUT
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 5
+        
+        let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3.3
+        
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        
+        //GET GRID MOVIE DATA
+        getMoviesGridData()
+        
     }
     
+    private func getMoviesGridData(){
+        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                //                self.movies = dataDictionary["results"] as! [[String:Any]]
+                self.collectionView.reloadData()
+                
+                //                print(self.movies)
+                print(dataDictionary)
+            }
+        }
+        task.resume()
+    }
     
     private func showFilterView() {
         UIView.animate(withDuration: 0.5,
@@ -247,22 +295,12 @@ extension SearchViewController: UIPickerViewDataSource {
 // MARK: - UIPickerViewDelegate
 
 extension SearchViewController: UIPickerViewDelegate {
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        switch currentPickerViewType {
-//        case .type:
-//            return types[row]
-//        case .year:
-//            return years[row]
-//        }
-//    }
-//
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch currentPickerViewType {
         case .type:
-            return NSAttributedString(string: types[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            return types[row]
         case .year:
-            return NSAttributedString(string: years[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            return years[row]
         }
     }
 }
@@ -271,4 +309,30 @@ enum PickerViewType {
     case type
     case year
 }
+
+
+
+
+
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.mediaArray?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        let movie = self.mediaArray?[indexPath.item]
+        
+        let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + (movie?.poster ?? ""))
+
+        cell.posterImageView?.af_setImage(withURL: baseUrl!)
+        
+        return cell
+    }
+    
+}
+    
 

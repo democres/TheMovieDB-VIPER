@@ -1,9 +1,9 @@
 //
 //  SearchContracts.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 27.01.2020.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import Foundation
@@ -19,6 +19,7 @@ protocol SeachViewProtocol: class {
 protocol SearchInteractorProtocol: class {
     var delegate: SearchInteractorDelegate? { get set }
     func load(title: String, type: String?, year: String?)
+    func loadMovies()
     func getYearDatas()
     func getTypeDatas()
 }
@@ -29,7 +30,8 @@ protocol SearchInteractorDelegate: class {
 
 enum SearchInteractorOutput {
     case setLoading(Bool)
-    case getMediaList(SearchModel)
+    case getMediaList([Media])
+    case allMovies([Media])
     case showYears([String])
     case showTypes([String])
 }
@@ -38,16 +40,18 @@ enum SearchInteractorOutput {
 
 protocol SearchPresenterProtocol: class {
     func load(title: String, type: String?, year: String?)
+    func loadMovies()
     func getYearDatas()
     func getTypeDatas()
     func validateNameField(name: String?)
-    func showMediaList(medias: SearchModel)
+    func showMediaList(medias: [Media])
 }
 
 enum SearchPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
-    case getMediaList(SearchModel)
+    case getMediaList([Media])
+    case allMovies([Media])
     case showYears([String])
     case showTypes([String])
     case isValidName(Bool)
@@ -60,5 +64,5 @@ protocol SearchRouterProtocol: class {
 }
 
 enum SearchRoute {
-    case list(SearchModel)
+    case list([Media])
 }

@@ -1,9 +1,9 @@
 //
 //  MediaListPresenter.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created Furkan Kurnaz on 23.05.2019.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import UIKit
@@ -11,9 +11,9 @@ import UIKit
 class MediaListPresenter {
 
     weak private var view: MediaListViewProtocol?
-    private let media: SearchModel
+    private let media: [Media]
 
-    init(view: MediaListViewProtocol, media: SearchModel) {
+    init(view: MediaListViewProtocol, media: [Media]) {
         self.view = view
         self.media = media
     }

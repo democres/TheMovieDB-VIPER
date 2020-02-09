@@ -1,15 +1,16 @@
 //
 //  SearchInteractor.swift
-//  TMDbAPI-VIPER
+//  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 27.01.2020.
-//  Copyright © 2020 David Figueroa. All rights reserved.
+//  Created by David Figueroa on 9/10/19.
+//  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
 import Foundation
 import Moya
+import ObjectMapper
 
-final class SearchInteractor: SearchInteractorProtocol {
+class SearchInteractor: SearchInteractorProtocol {
     
     weak var delegate: SearchInteractorDelegate?
     
@@ -39,7 +40,7 @@ final class SearchInteractor: SearchInteractorProtocol {
         delegate?.handleOutput(.setLoading(true))
         
         let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-        let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
+        let provider = MoyaProvider<TMDbAPIService>(plugins: pluginsArray)
         
         provider.request(.search(title: title, type: type, year: year)) { [weak self] response in
             guard let self = self else { return }
@@ -50,8 +51,18 @@ final class SearchInteractor: SearchInteractorProtocol {
                 let data = value.data
                 
                 do {
-                    let results = try JSONDecoder().decode(SearchModel.self, from: data)
-                    self.delegate?.handleOutput(.getMediaList(results))
+                    
+                    let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let json = dataAux as? [String: Any] {
+                        print(json)
+                        if let results = json["results"] as? [[String: Any]] {
+                            if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
+                                print(mediaArray[0].title)
+                                self.delegate?.handleOutput(.getMediaList(mediaArray))
+                            }
+                        }
+                    }
+                    
                 } catch let error {
                     print(error)
                 }
@@ -60,6 +71,49 @@ final class SearchInteractor: SearchInteractorProtocol {
                 print(error)
             }
         }
+        
+        
+        
+    }
+    
+    
+    func loadMovies() {
+        delegate?.handleOutput(.setLoading(true))
+        
+        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
+        let provider = MoyaProvider<TMDbAPIService>(plugins: pluginsArray)
+        
+        provider.request(.allMoviesRequest) { [weak self] response in
+            guard let self = self else { return }
+            self.delegate?.handleOutput(.setLoading(false))
+            
+            switch response {
+            case .success(let value):
+                let data = value.data
+                
+                do {
+                    let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let json = dataAux as? [String: Any] {
+                        print(json)
+                        if let results = json["results"] as? [[String: Any]] {
+                            if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
+                                print(mediaArray[0].title)
+                                self.delegate?.handleOutput(.allMovies(mediaArray))
+                            }
+                        }
+                    }
+                    
+                } catch let error {
+                    print(error)
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        
+        
     }
     
 }
