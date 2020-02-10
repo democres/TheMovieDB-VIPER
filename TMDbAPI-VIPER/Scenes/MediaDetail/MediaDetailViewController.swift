@@ -28,7 +28,7 @@ class MediaDetailViewController: UIViewController {
         super.viewDidLoad()
         
         presenter.load()
-        titleLbl.text = self.media.title
+        configureView()
     }
     
     
@@ -37,6 +37,9 @@ class MediaDetailViewController: UIViewController {
     
     // MARK: - Helpers
     
+    func configureView(){
+        titleLbl.text = self.media.title
+    }
 
     // MARK: - Actions
     
