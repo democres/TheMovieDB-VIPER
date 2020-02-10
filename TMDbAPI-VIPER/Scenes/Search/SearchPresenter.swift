@@ -54,8 +54,12 @@ final class SearchPresenter: SearchPresenterProtocol {
         }
     }
     
-    func showMediaList(medias: [Media]) {
-        router.navigate(to: .list(medias))
+    func showMediaList(mediaArray: [Media]) {
+        router.navigate(to: .list(mediaArray))
+    }
+    
+    func showMediaDetail(media: Media) {
+        router.navigate(to: .showDetail(media))
     }
 }
 

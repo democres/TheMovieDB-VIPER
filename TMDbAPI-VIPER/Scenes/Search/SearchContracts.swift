@@ -44,7 +44,8 @@ protocol SearchPresenterProtocol: class {
     func getYearDatas()
     func getTypeDatas()
     func validateNameField(name: String?)
-    func showMediaList(medias: [Media])
+    func showMediaList(mediaArray: [Media])
+    func showMediaDetail(media: Media)
 }
 
 enum SearchPresenterOutput {
@@ -65,4 +66,5 @@ protocol SearchRouterProtocol: class {
 
 enum SearchRoute {
     case list([Media])
+    case showDetail(Media)
 }
