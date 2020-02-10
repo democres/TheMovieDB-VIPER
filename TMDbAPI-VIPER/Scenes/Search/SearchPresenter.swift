@@ -10,11 +10,11 @@ import Foundation
 
 final class SearchPresenter: SearchPresenterProtocol {
     
-    private let view: SeachViewProtocol
+    private let view: SearchViewProtocol
     private let interactor: SearchInteractorProtocol
     private let router: SearchRouterProtocol
     
-    init(view: SeachViewProtocol,
+    init(view: SearchViewProtocol,
          interactor: SearchInteractorProtocol,
          router: SearchRouterProtocol) {
         self.view = view

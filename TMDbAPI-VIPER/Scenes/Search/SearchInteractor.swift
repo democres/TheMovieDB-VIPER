@@ -57,7 +57,6 @@ class SearchInteractor: SearchInteractorProtocol {
                         print(json)
                         if let results = json["results"] as? [[String: Any]] {
                             if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
-                                print(mediaArray[0].title)
                                 self.delegate?.handleOutput(.getMediaList(mediaArray))
                             }
                         }

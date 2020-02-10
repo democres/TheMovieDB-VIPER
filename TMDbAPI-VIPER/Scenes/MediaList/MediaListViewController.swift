@@ -55,3 +55,11 @@ extension MediaListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension MediaListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let media = self.medias?[indexPath.row] {
+            presenter.showMediaDetail(media: media)
+        }
+    }
+}

@@ -13,7 +13,21 @@ protocol MediaListViewProtocol: class {
     func update(presentation: [Media])
 }
 
+// MARK: Interactor
+
+
 // MARK: Presenter
 protocol MediaListPresenterProtocol: class {
     func load()
 }
+
+
+// MARK: - Router
+protocol MediaListRouterProtocol: class {
+    func navigate(to route: MediaListRoute)
+}
+
+enum MediaListRoute {
+    case show(Media)
+}
+

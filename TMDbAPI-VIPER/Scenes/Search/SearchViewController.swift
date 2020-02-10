@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-final class SearchViewController: UIViewController, SeachViewProtocol {
+final class SearchViewController: UIViewController, SearchViewProtocol {
     
     // MARK: - Outlets
     

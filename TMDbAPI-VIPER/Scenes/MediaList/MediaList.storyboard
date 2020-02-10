@@ -31,7 +31,7 @@
                                                     <rect key="frame" x="15" y="11" width="345" height="78"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imdb" translatesAutoresizingMaskIntoConstraints="NO" id="n4n-hy-R74">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="78.000000000000028"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="78"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="aw2-Fd-vnh"/>
                                                                 <constraint firstAttribute="height" constant="70" id="pfG-PX-bP4"/>

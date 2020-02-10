@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - View
 
-protocol SeachViewProtocol: class {
+protocol SearchViewProtocol: class {
     func handleOutput(_ output: SearchPresenterOutput)
 }
 
