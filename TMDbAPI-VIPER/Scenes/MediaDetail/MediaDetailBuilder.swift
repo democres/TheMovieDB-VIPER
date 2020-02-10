@@ -13,7 +13,8 @@ class MediaDetailBuilder {
     static func make(media: Media) -> MediaDetailViewController {
         let storyBoard = UIStoryboard(name: "MediaDetail", bundle: nil)
         let view: MediaDetailViewController = storyBoard.instantiateViewController(withIdentifier: "MediaDetailViewController") as! MediaDetailViewController
-        let presenter = MediaDetailPresenter(view: view, media: media)
+        let interactor = MediaDetailInteractor()
+        let presenter = MediaDetailPresenter(view: view, media: media, interactor: interactor)
         
         view.presenter = presenter
         
