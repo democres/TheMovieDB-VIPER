@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_IMDbAPI_VIPERVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_IMDbAPI_VIPERVersionString[];
+FOUNDATION_EXPORT double Pods_TMDbAPI_VIPERVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_TMDbAPI_VIPERVersionString[];
 

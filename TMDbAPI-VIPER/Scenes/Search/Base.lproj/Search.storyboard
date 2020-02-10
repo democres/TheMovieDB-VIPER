@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imdb" translatesAutoresizingMaskIntoConstraints="NO" id="Ebb-Wi-3QG">
-                                <rect key="frame" x="97" y="51" width="182" height="70"/>
+                                <rect key="frame" x="97" y="51" width="182" height="70.000000000000028"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="v6z-1l-ZQJ"/>
                                 </constraints>
@@ -33,10 +33,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fyj-TS-Ua6"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9W-Su-EEC">
-                                <rect key="frame" x="163" y="213" width="49" height="27"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                <state key="normal" title="Filters...">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9W-Su-EEC">
+                                <rect key="frame" x="154" y="213" width="67.5" height="21"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Filters" image="arrowtriangle.down.square" catalog="system">
                                     <color key="titleColor" red="0.048255987469999997" green="0.109116666" blue="0.13725924489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -86,7 +87,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPQ-3Z-qxx" customClass="RoundedView" customModule="TMDbAPI_VIPER" customModuleProvider="target">
-                                <rect key="frame" x="20" y="250" width="335" height="128"/>
+                                <rect key="frame" x="20" y="244" width="335" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc6-1O-ECM">
                                         <rect key="frame" x="20" y="16" width="52" height="22"/>
@@ -311,7 +312,7 @@
                                                     <rect key="frame" x="15" y="11" width="345" height="78"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imdb" translatesAutoresizingMaskIntoConstraints="NO" id="wcP-vW-USM">
-                                                            <rect key="frame" x="8" y="4" width="70" height="70"/>
+                                                            <rect key="frame" x="8" y="4" width="70" height="70.000000000000028"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="Mbn-AW-wOD"/>
                                                                 <constraint firstAttribute="height" constant="70" id="PGo-WA-hwo"/>
@@ -382,6 +383,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.down.square" catalog="system" width="64" height="56"/>
         <image name="imdb" width="408" height="161"/>
         <image name="search" width="512" height="512"/>
     </resources>
