@@ -37,7 +37,7 @@ extension MediaDetailPresenter: MediaDetailInteractorDelegate{
     func handleOutput(_ output: MediaDetailInteractorOutput) {
         switch output {
         case .movieDetail(let movieKey):
-            print(movieKey)
+            view?.showMovieTrailer(trailerKey: movieKey)
         }
     }
     

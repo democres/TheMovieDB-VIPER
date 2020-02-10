@@ -16,11 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-vU-hhO" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="243"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="G0j-3z-Plz"/>
+                                </constraints>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGl-tR-f8n" customClass="RoundedView" customModule="TMDbAPI_VIPER" customModuleProvider="target">
-                                <rect key="frame" x="10" y="54" width="394" height="154"/>
+                                <rect key="frame" x="5" y="54" width="404" height="154"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRAINING DAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="257" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-de-mbe">
-                                        <rect key="frame" x="104" y="-3" width="285" height="36"/>
+                                        <rect key="frame" x="111" y="-3" width="295" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="gtN-5J-teF"/>
                                         </constraints>
@@ -37,7 +44,7 @@
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h9K-Zl-gOW">
-                                        <rect key="frame" x="100" y="23" width="285" height="128"/>
+                                        <rect key="frame" x="108" y="23" width="285" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="285" id="IQq-aa-moT"/>
                                             <constraint firstAttribute="height" constant="128" id="Nb1-Su-NI8"/>
@@ -52,19 +59,22 @@
                                 <constraints>
                                     <constraint firstItem="h9K-Zl-gOW" firstAttribute="top" secondItem="YGl-tR-f8n" secondAttribute="top" constant="23" id="GuX-Od-NE5"/>
                                     <constraint firstItem="zev-4e-oSX" firstAttribute="top" secondItem="YGl-tR-f8n" secondAttribute="top" id="IIp-dG-S0x"/>
-                                    <constraint firstAttribute="trailing" secondItem="mh0-de-mbe" secondAttribute="trailing" constant="5" id="a5M-fr-Nqn"/>
+                                    <constraint firstAttribute="trailing" secondItem="mh0-de-mbe" secondAttribute="trailing" constant="-2" id="a5M-fr-Nqn"/>
                                     <constraint firstItem="zev-4e-oSX" firstAttribute="leading" secondItem="YGl-tR-f8n" secondAttribute="leading" id="aWd-su-2mO"/>
                                     <constraint firstAttribute="height" constant="154" id="ck4-hs-L41"/>
-                                    <constraint firstAttribute="trailing" secondItem="h9K-Zl-gOW" secondAttribute="trailing" constant="9" id="fOv-Y1-1Cs"/>
+                                    <constraint firstAttribute="trailing" secondItem="h9K-Zl-gOW" secondAttribute="trailing" constant="11" id="fOv-Y1-1Cs"/>
                                     <constraint firstItem="mh0-de-mbe" firstAttribute="top" secondItem="YGl-tR-f8n" secondAttribute="top" constant="-3" id="gOd-EL-ZzZ"/>
-                                    <constraint firstItem="mh0-de-mbe" firstAttribute="leading" secondItem="zev-4e-oSX" secondAttribute="trailing" constant="8" id="zap-e0-T4N"/>
+                                    <constraint firstItem="mh0-de-mbe" firstAttribute="leading" secondItem="zev-4e-oSX" secondAttribute="trailing" constant="15" id="zap-e0-T4N"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lyZ-oh-Shb" firstAttribute="trailing" secondItem="YGl-tR-f8n" secondAttribute="trailing" constant="10" id="DnA-Dh-JYG"/>
-                            <constraint firstItem="YGl-tR-f8n" firstAttribute="leading" secondItem="lyZ-oh-Shb" secondAttribute="leading" constant="10" id="Pbe-dl-uSm"/>
+                            <constraint firstItem="lyZ-oh-Shb" firstAttribute="trailing" secondItem="YGl-tR-f8n" secondAttribute="trailing" constant="5" id="DnA-Dh-JYG"/>
+                            <constraint firstItem="ZxF-vU-hhO" firstAttribute="leading" secondItem="lyZ-oh-Shb" secondAttribute="leading" id="GJL-GA-rHr"/>
+                            <constraint firstItem="YGl-tR-f8n" firstAttribute="leading" secondItem="lyZ-oh-Shb" secondAttribute="leading" constant="5" id="Pbe-dl-uSm"/>
+                            <constraint firstItem="lyZ-oh-Shb" firstAttribute="trailing" secondItem="ZxF-vU-hhO" secondAttribute="trailing" id="mU3-hY-lQz"/>
+                            <constraint firstItem="ZxF-vU-hhO" firstAttribute="top" secondItem="lyZ-oh-Shb" secondAttribute="top" id="tIg-Rh-VpD"/>
                             <constraint firstItem="YGl-tR-f8n" firstAttribute="top" secondItem="lyZ-oh-Shb" secondAttribute="top" constant="10" id="wot-JU-40Q" customClass="roundedvi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lyZ-oh-Shb"/>
@@ -75,6 +85,7 @@
                         <outlet property="headerView" destination="YGl-tR-f8n" id="3Eh-bP-Hp0"/>
                         <outlet property="moviePosterImg" destination="zev-4e-oSX" id="NNa-0x-rBK"/>
                         <outlet property="titleLbl" destination="mh0-de-mbe" id="M4U-WD-dHc"/>
+                        <outlet property="videoPreview" destination="ZxF-vU-hhO" id="ijo-h0-BsZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwD-Lc-8JG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -30,11 +30,11 @@ class MediaDetailInteractor: MediaDetailInteractorProtocol {
                     
                     let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
                     if let json = dataAux as? [String: Any] {
-                        print(json)
-                        if let results = json["results"] as? [String: Any] {
-                            let trailerKey = results["key"] as? String
-                            self.delegate?.handleOutput(.movieDetail(trailerKey ?? ""))
-                        }
+                        
+                        guard let results = json["results"] as? [[String: Any]], results.count > 0 else { return }
+                        
+                        let trailerKey = results[0]["key"] as? String
+                        self.delegate?.handleOutput(.movieDetail(trailerKey ?? ""))
                     }
                     
                 } catch let error {

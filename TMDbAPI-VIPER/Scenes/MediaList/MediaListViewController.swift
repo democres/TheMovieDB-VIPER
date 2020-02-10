@@ -22,6 +22,9 @@ class MediaListViewController: UIViewController {
         
         presenter.load()
         configureView()
+        
+        self.title = "Search Results"
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func configureView() {

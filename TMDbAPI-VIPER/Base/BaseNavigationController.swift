@@ -19,12 +19,10 @@ class BaseNavigationController: UINavigationController {
     }
     
     private func configureNavigationBar() {
-        navigationBar.barTintColor = UIColor(hexString: "#081c24")
-        navigationBar.tintColor = .white
-        navigationBar.alpha = 0
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#081c24")
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        navigationBar.titleTextAttributes = textAttributes
     }
     
 }
