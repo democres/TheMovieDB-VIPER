@@ -12,15 +12,8 @@ class MovieGridCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView?
     
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
         self.layer.cornerRadius = 7
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.layer.cornerRadius = 7
-    }
-    
+
 }

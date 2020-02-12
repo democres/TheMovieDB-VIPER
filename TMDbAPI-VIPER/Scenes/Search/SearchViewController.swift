@@ -336,7 +336,22 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 
         cell.posterImageView?.af_setImage(withURL: baseUrl!)
         
+        cell.posterImageView?.tag = indexPath.row
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.posterImageView?.isUserInteractionEnabled = true
+        cell.posterImageView?.addGestureRecognizer(tapGestureRecognizer)
+        
         return cell
+    }
+
+
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedPoster = tapGestureRecognizer.view as! UIImageView
+        guard let media = self.mediaArray?[tappedPoster.tag] else { return }
+        presenter.showMediaDetail(media: media)
+        
     }
     
 }

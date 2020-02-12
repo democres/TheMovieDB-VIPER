@@ -16,8 +16,6 @@ class MediaListTableViewCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        
         self.selectionStyle = .none
     }
     

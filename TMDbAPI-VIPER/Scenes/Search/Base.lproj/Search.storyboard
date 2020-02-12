@@ -68,11 +68,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="543-Zr-gST">
-                                                    <rect key="frame" x="-72" y="-2" width="240" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-rg-Ris">
                                                     <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
                                                 </imageView>
@@ -91,7 +86,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CDd-qk-1yH"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iec-RB-bLg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RG3-cT-C17"/>
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPQ-3Z-qxx" customClass="RoundedView" customModule="TMDbAPI_VIPER" customModuleProvider="target">

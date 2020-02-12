@@ -48,6 +48,7 @@ class MediaDetailViewController: UIViewController{
     // MARK: - Helpers
     
     func configureView(){
+        self.title = media.title
         titleLbl.text = media.title
         descriptionLbl.text = media.overview
         
@@ -72,7 +73,7 @@ class MediaDetailViewController: UIViewController{
 extension MediaDetailViewController: MediaDetailViewProtocol {
     func showMovieTrailer(trailerKey: String) {
         UIView.animate(withDuration: 1, animations: {
-            self.headerTopConstraint.constant = 270
+            self.headerTopConstraint.constant = 250
             self.view.layoutIfNeeded()
         }) { (finished) in
             self.videoPreview.isHidden = false
