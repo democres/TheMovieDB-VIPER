@@ -3,7 +3,7 @@
 //  IMDbAPI-VIPER
 //
 //  Created by David Figueroa on 10/02/20.
-//  Copyright © 2019 Furkan Kurnaz. All rights reserved.
+//  Copyright © 2020 David Figueroa. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,8 @@ class MovieGridCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView?
     
-    override func awakeFromNib() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         self.layer.cornerRadius = 7
     }
 

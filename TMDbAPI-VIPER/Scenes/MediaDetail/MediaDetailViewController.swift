@@ -54,8 +54,6 @@ class MediaDetailViewController: UIViewController{
         
         let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + (media?.poster ?? ""))
         moviePosterImg.af_setImage(withURL: baseUrl!)
-
-        
     }
     
     func getMovieTrailer(){
