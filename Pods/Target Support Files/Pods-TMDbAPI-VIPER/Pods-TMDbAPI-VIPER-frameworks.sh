@@ -166,6 +166,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YoutubePlayerView/YoutubePlayerView.framework"
 fi
@@ -175,6 +177,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YoutubePlayerView/YoutubePlayerView.framework"
 fi

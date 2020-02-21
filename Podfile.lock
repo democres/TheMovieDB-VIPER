@@ -9,6 +9,11 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - ObjectMapper (3.5.1)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - Result (4.1.0)
   - YoutubePlayerView (1.1.0)
 
@@ -17,6 +22,7 @@ DEPENDENCIES:
   - Kingfisher
   - Moya
   - ObjectMapper (~> 3.4)
+  - RealmSwift
   - YoutubePlayerView
 
 SPEC REPOS:
@@ -28,6 +34,8 @@ SPEC REPOS:
   trunk:
     - AlamofireImage
     - ObjectMapper
+    - Realm
+    - RealmSwift
     - YoutubePlayerView
 
 SPEC CHECKSUMS:
@@ -36,9 +44,11 @@ SPEC CHECKSUMS:
   Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   YoutubePlayerView: ceed1ec64d8debcc5a12a66ec128880ecd2bbb60
 
-PODFILE CHECKSUM: 1df09124f18a91389be06300a937e05b7ced3ce3
+PODFILE CHECKSUM: 24b7dbdcea34eb9f138aa40a70915696556c25d9
 
 COCOAPODS: 1.8.4

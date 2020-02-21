@@ -180,10 +180,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="32" height="32"/>
         <image name="dislike" width="512" height="512"/>
         <image name="imdb" width="408" height="161"/>
         <image name="like" width="512" height="512"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="32" height="32"/>
     </resources>
 </document>
