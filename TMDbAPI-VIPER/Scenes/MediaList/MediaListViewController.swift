@@ -22,6 +22,9 @@ class MediaListViewController: UIViewController {
         
         presenter.load()
         configureView()
+        
+        self.title = "Search Results"
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func configureView() {
@@ -48,7 +51,7 @@ extension MediaListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let movie = self.medias?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MediaListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MediaListCell", for: indexPath) as! MediaListTableViewCell
         
         cell.setView(title: movie?.title ?? "", type: movie?.overview ?? "" , imageURL: movie?.poster ?? "")
         

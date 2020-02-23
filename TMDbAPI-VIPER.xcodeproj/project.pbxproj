@@ -13,6 +13,8 @@
 		2722E76723F0C65900C00720 /* MediaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722E76623F0C65900C00720 /* MediaDetailPresenter.swift */; };
 		2722E76923F0C66700C00720 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2722E76823F0C66700C00720 /* MediaDetail.storyboard */; };
 		2722E76B23F0D3B900C00720 /* MediaListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722E76A23F0D3B900C00720 /* MediaListRouter.swift */; };
+		2726C5AB23FBEB9500E1A706 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2726C5AA23FBEB9500E1A706 /* ShadowView.swift */; };
+		274774E423F1910600692ED9 /* MediaDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274774E323F1910600692ED9 /* MediaDetailInteractor.swift */; };
 		2755440423F0BBA000A6FE21 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755440323F0BBA000A6FE21 /* MovieGridCell.swift */; };
 		278AD3FC2327D05B001074FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FB2327D05B001074FE /* MainViewController.swift */; };
 		278AD3FE2327D067001074FE /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FD2327D067001074FE /* MainViewPresenter.swift */; };
@@ -51,6 +53,8 @@
 		2722E76623F0C65900C00720 /* MediaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailPresenter.swift; sourceTree = "<group>"; };
 		2722E76823F0C66700C00720 /* MediaDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
 		2722E76A23F0D3B900C00720 /* MediaListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListRouter.swift; sourceTree = "<group>"; };
+		2726C5AA23FBEB9500E1A706 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = "TMDbAPI-VIPER/Views/CustomViews/ShadowView.swift"; sourceTree = SOURCE_ROOT; };
+		274774E323F1910600692ED9 /* MediaDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailInteractor.swift; sourceTree = "<group>"; };
 		2754144A2327C7E500388B24 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2755440323F0BBA000A6FE21 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		278AD3FB2327D05B001074FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -115,9 +119,10 @@
 			children = (
 				2722E76823F0C66700C00720 /* MediaDetail.storyboard */,
 				2722E76023F0C62100C00720 /* MediaDetailViewController.swift */,
+				274774E323F1910600692ED9 /* MediaDetailInteractor.swift */,
+				2722E76623F0C65900C00720 /* MediaDetailPresenter.swift */,
 				2722E76223F0C64000C00720 /* MediaDetailBuilder.swift */,
 				2722E76423F0C64C00C00720 /* MediaDetailContracts.swift */,
-				2722E76623F0C65900C00720 /* MediaDetailPresenter.swift */,
 			);
 			path = MediaDetail;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 		EA84A5FF228EA88B009E7955 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				2726C5AA23FBEB9500E1A706 /* ShadowView.swift */,
 				EA84A600228EA8A5009E7955 /* RoundedView.swift */,
 			);
 			path = CustomViews;
@@ -435,6 +441,7 @@
 				EA363BCE228EC0C00050F9B6 /* SearchModel.swift in Sources */,
 				EACE2BF722968E3400B2BFA1 /* MediaListBuilder.swift in Sources */,
 				2755440423F0BBA000A6FE21 /* MovieGridCell.swift in Sources */,
+				274774E423F1910600692ED9 /* MediaDetailInteractor.swift in Sources */,
 				27B1FC8823DF37B900519763 /* HexToColor.swift in Sources */,
 				2722E76323F0C64000C00720 /* MediaDetailBuilder.swift in Sources */,
 				EACE2BF622968E3400B2BFA1 /* MediaListViewController.swift in Sources */,
@@ -455,6 +462,7 @@
 				EA84A5FE228EA7AC009E7955 /* BaseNavigationController.swift in Sources */,
 				EACE2BFB229692AF00B2BFA1 /* MediaListTableViewCell.swift in Sources */,
 				278AD3FE2327D067001074FE /* MainViewPresenter.swift in Sources */,
+				2726C5AB23FBEB9500E1A706 /* ShadowView.swift in Sources */,
 				2722E76123F0C62100C00720 /* MediaDetailViewController.swift in Sources */,
 				EA84A5FA228EA6A7009E7955 /* AppRouter.swift in Sources */,
 				2722E76B23F0D3B900C00720 /* MediaListRouter.swift in Sources */,

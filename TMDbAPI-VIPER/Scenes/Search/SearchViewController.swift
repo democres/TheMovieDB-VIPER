@@ -2,7 +2,7 @@
 //  SearchViewController.swift
 //  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 9/10/19.
+//  Created by David Figueroa on 10/02/20.
 //  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
@@ -73,7 +73,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         case .setLoading(let isLoading):
             UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
         case .getMediaList(let searchResults):
-            self.presenter.showMediaList(medias: searchResults)
+            self.presenter.showMediaList(mediaArray: searchResults)
         case .showYears(let years):
             self.years = years
         case .showTypes(let types):
@@ -95,7 +95,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         presenter.loadMovies()
         
         
-       //MOVIE GRID LAYOUT
+        //MOVIE GRID LAYOUT
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
         layout.minimumLineSpacing = 20
@@ -107,7 +107,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         
         //GET GRID MOVIE DATA
         getMoviesGridData()
-        
+           
     }
     
     private func getMoviesGridData(){
@@ -315,9 +315,14 @@ enum PickerViewType {
 
 
 
-
+// MARK: - Collection View Delegate and Data Source
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let media = self.mediaArray?[indexPath.row] else { return }
+        presenter.showMediaDetail(media: media)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.mediaArray?.count ?? 0
@@ -331,7 +336,22 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 
         cell.posterImageView?.af_setImage(withURL: baseUrl!)
         
+        cell.posterImageView?.tag = indexPath.row
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.posterImageView?.isUserInteractionEnabled = true
+        cell.posterImageView?.addGestureRecognizer(tapGestureRecognizer)
+        
         return cell
+    }
+
+
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedPoster = tapGestureRecognizer.view as! UIImageView
+        guard let media = self.mediaArray?[tappedPoster.tag] else { return }
+        presenter.showMediaDetail(media: media)
+        
     }
     
 }

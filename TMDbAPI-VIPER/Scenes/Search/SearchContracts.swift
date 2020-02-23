@@ -2,7 +2,7 @@
 //  SearchContracts.swift
 //  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 9/10/19.
+//  Created by David Figueroa on 10/02/20.
 //  Copyright © 2019 David Figueroa. All rights reserved.
 //
 
@@ -44,7 +44,8 @@ protocol SearchPresenterProtocol: class {
     func getYearDatas()
     func getTypeDatas()
     func validateNameField(name: String?)
-    func showMediaList(medias: [Media])
+    func showMediaList(mediaArray: [Media])
+    func showMediaDetail(media: Media)
 }
 
 enum SearchPresenterOutput {
@@ -65,4 +66,5 @@ protocol SearchRouterProtocol: class {
 
 enum SearchRoute {
     case list([Media])
+    case showDetail(Media)
 }

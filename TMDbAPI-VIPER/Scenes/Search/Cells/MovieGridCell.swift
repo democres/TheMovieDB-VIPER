@@ -2,8 +2,8 @@
 //  MovieGridCell.swift
 //  IMDbAPI-VIPER
 //
-//  Created by David Figueroa on 9/10/19.
-//  Copyright © 2019 Furkan Kurnaz. All rights reserved.
+//  Created by David Figueroa on 10/02/20.
+//  Copyright © 2020 David Figueroa. All rights reserved.
 //
 
 import UIKit
@@ -11,4 +11,10 @@ import UIKit
 class MovieGridCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = 7
+    }
+
 }
