@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+
 
 final class SearchPresenter: SearchPresenterProtocol {
     
     private let view: SearchViewProtocol
     private let interactor: SearchInteractorProtocol
     private let router: SearchRouterProtocol
+        
+    private let disposeBag = DisposeBag()
     
     init(view: SearchViewProtocol,
          interactor: SearchInteractorProtocol,
@@ -26,12 +30,12 @@ final class SearchPresenter: SearchPresenterProtocol {
         view.handleOutput(.updateTitle("TMDb Search"))
     }
     
-    func getYearDatas() {
-        interactor.getTypeDatas()
+    func getYearsData() {
+        interactor.getTypesData()
     }
     
-    func getTypeDatas() {
-        interactor.getYearDatas()
+    func getTypesData() {
+        interactor.getYearsData()
     }
     
     func load(title: String, type: String?, year: String?) {
@@ -39,7 +43,15 @@ final class SearchPresenter: SearchPresenterProtocol {
     }
     
     func loadMovies() {
-        interactor.loadMovies()
+        interactor.loadMovies().observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] mediaArray in
+                self?.view.handleOutput(.allMovies(mediaArray))
+        }, onError: { (error) in
+            print(error)
+            // HANDLE THE ERROR
+            self.view.handleOutput(.allMovies(self.interactor.fetchLocalData()))
+        })
+        .disposed(by: disposeBag)
     }
     
     func validateNameField(name: String?) {
