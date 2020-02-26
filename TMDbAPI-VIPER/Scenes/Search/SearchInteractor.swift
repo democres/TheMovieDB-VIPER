@@ -9,12 +9,16 @@
 import Foundation
 import Moya
 import ObjectMapper
+import RxSwift
+import RealmSwift
 
 class SearchInteractor: SearchInteractorProtocol {
     
     weak var delegate: SearchInteractorDelegate?
     
-    func getYearDatas() {
+    let moyaProvider = MoyaProvider<TMDbAPIService>(plugins: [NetworkLoggerPlugin()])
+    
+    func getYearsData() {
         var years: [String] = []
         
         let currentYear = Calendar.current.component(.year, from: Date())
@@ -26,7 +30,7 @@ class SearchInteractor: SearchInteractorProtocol {
         self.delegate?.handleOutput(.showYears(years))
     }
     
-    func getTypeDatas() {
+    func getTypesData() {
         let types: [String] = [
             "Movies",
             "Series",
@@ -75,44 +79,50 @@ class SearchInteractor: SearchInteractorProtocol {
         
     }
     
-    
-    func loadMovies() {
+    func loadMovies() -> Observable<[Media]>{
         delegate?.handleOutput(.setLoading(true))
-        
-        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-        let provider = MoyaProvider<TMDbAPIService>(plugins: pluginsArray)
-        
-        provider.request(.allMoviesRequest) { [weak self] response in
-            guard let self = self else { return }
-            self.delegate?.handleOutput(.setLoading(false))
-            
-            switch response {
-            case .success(let value):
-                let data = value.data
-                
-                do {
-                    let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
-                    if let json = dataAux as? [String: Any] {
-                        print(json)
-                        if let results = json["results"] as? [[String: Any]] {
-                            if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
-                                print(mediaArray[0].title)
-                                self.delegate?.handleOutput(.allMovies(mediaArray))
+
+        return moyaProvider.rx.request(.allMoviesRequest)
+                    .debug()
+                    .filterSuccessfulStatusCodes()
+                    .asObservable()
+                    .map{ response -> [Media] in
+                        // CUSTOM OBJECT MAPPING DUE TO MOYA DIFFICULTIES TO PARSE THE JSON RESPONSE FROM THE "The Movie Database" SERVER
+                        let dataAux = try JSONSerialization.jsonObject(with: response.data, options: [])
+                        if let json = dataAux as? [String: Any] {
+                            if let results = json["results"] as? [[String: Any]] {
+                                if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
+                                    self.storeData(mediaArray: mediaArray)
+                                    return mediaArray
+                                }
                             }
                         }
+                        
+                        //RETURN LOCAL REALM CACHE IF EXISTS
+                        return self.fetchLocalData()
+                        
                     }
-                    
-                } catch let error {
-                    print(error)
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        
-        
     }
     
+    func fetchLocalData() -> [Media] {
+        var mediaArray = [Media]()
+        let realm = try! Realm()
+        realm.objects(Media.self).forEach { media in
+            mediaArray.append(media)
+        }
+        return mediaArray
+    }
+    
+    func storeData(mediaArray: [Media]){
+        let realm = try! Realm()
+        try! realm.write {
+            mediaArray.forEach { media in
+                realm.add(media)
+            }
+        }
+    }
+    
+
 }
+    
+

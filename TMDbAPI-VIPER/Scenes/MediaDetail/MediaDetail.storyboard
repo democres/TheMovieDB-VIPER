@@ -118,7 +118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dislike" translatesAutoresizingMaskIntoConstraints="NO" id="OUs-qm-cOQ">
-                                <rect key="frame" x="274" y="224" width="25" height="20.5"/>
+                                <rect key="frame" x="274" y="225" width="25" height="20.5"/>
                                 <color key="tintColor" red="0.018290480599999999" green="0.83694261309999995" blue="0.45483601089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="2na-af-7LQ"/>
@@ -138,7 +138,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="OUs-qm-cOQ" firstAttribute="top" secondItem="n87-X4-MGn" secondAttribute="bottom" constant="16" id="6da-6j-jNB"/>
+                            <constraint firstItem="OUs-qm-cOQ" firstAttribute="top" secondItem="n87-X4-MGn" secondAttribute="bottom" constant="17" id="6da-6j-jNB"/>
                             <constraint firstItem="MOx-Zw-oeI" firstAttribute="centerX" secondItem="qCz-nb-p23" secondAttribute="centerX" id="8uR-go-gbt"/>
                             <constraint firstItem="lyZ-oh-Shb" firstAttribute="trailing" secondItem="YGl-tR-f8n" secondAttribute="trailing" constant="5" id="DnA-Dh-JYG"/>
                             <constraint firstItem="ZxF-vU-hhO" firstAttribute="leading" secondItem="lyZ-oh-Shb" secondAttribute="leading" id="GJL-GA-rHr"/>
@@ -149,7 +149,7 @@
                             <constraint firstItem="GO6-Kb-zlM" firstAttribute="centerX" secondItem="OUs-qm-cOQ" secondAttribute="centerX" id="RJh-1a-W30"/>
                             <constraint firstItem="lyZ-oh-Shb" firstAttribute="trailing" secondItem="47f-O7-6Mp" secondAttribute="trailing" constant="22" id="SNj-FI-4aJ"/>
                             <constraint firstItem="47f-O7-6Mp" firstAttribute="top" secondItem="n87-X4-MGn" secondAttribute="bottom" constant="12" id="TkH-v6-la4"/>
-                            <constraint firstItem="GO6-Kb-zlM" firstAttribute="top" secondItem="OUs-qm-cOQ" secondAttribute="bottom" constant="-1.5" id="VwC-tf-RJR"/>
+                            <constraint firstItem="GO6-Kb-zlM" firstAttribute="top" secondItem="OUs-qm-cOQ" secondAttribute="bottom" constant="-2.5" id="VwC-tf-RJR"/>
                             <constraint firstItem="lyZ-oh-Shb" firstAttribute="bottom" secondItem="MOx-Zw-oeI" secondAttribute="bottom" constant="30" id="eWJ-77-FTg"/>
                             <constraint firstItem="4qx-QK-QHR" firstAttribute="centerX" secondItem="DVA-8r-G37" secondAttribute="centerX" id="erk-G1-ry5"/>
                             <constraint firstItem="n87-X4-MGn" firstAttribute="trailing" secondItem="YGl-tR-f8n" secondAttribute="trailing" id="fYp-TO-krN"/>
@@ -180,10 +180,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="32" height="32"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
         <image name="dislike" width="512" height="512"/>
         <image name="imdb" width="408" height="161"/>
         <image name="like" width="512" height="512"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="32" height="32"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

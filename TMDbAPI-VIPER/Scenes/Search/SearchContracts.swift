@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 // MARK: - View
 
@@ -19,9 +20,10 @@ protocol SearchViewProtocol: class {
 protocol SearchInteractorProtocol: class {
     var delegate: SearchInteractorDelegate? { get set }
     func load(title: String, type: String?, year: String?)
-    func loadMovies()
-    func getYearDatas()
-    func getTypeDatas()
+    func loadMovies() -> Observable<[Media]>
+    func getYearsData()
+    func getTypesData()
+    func fetchLocalData() -> [Media]
 }
 
 protocol SearchInteractorDelegate: class {
@@ -41,8 +43,8 @@ enum SearchInteractorOutput {
 protocol SearchPresenterProtocol: class {
     func load(title: String, type: String?, year: String?)
     func loadMovies()
-    func getYearDatas()
-    func getTypeDatas()
+    func getYearsData()
+    func getTypesData()
     func validateNameField(name: String?)
     func showMediaList(mediaArray: [Media])
     func showMediaDetail(media: Media)

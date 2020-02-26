@@ -8,22 +8,25 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Media: Mappable {
+//struct Media: Mappable,Decodable {
+class Media: Object, Mappable {
+
+    @objc dynamic var id: Int = 0
+    @objc dynamic var title: String?
+    @objc dynamic var poster: String?
+    @objc dynamic var overview: String?
+    @objc dynamic var mediaType: String?
+    @objc dynamic var trailer: String?
     
-    var title: String?
-    var poster: String?
-    var overview: String?
-    var mediaType: String?
-    var trailer: String?
-    var id: Int?
     
     //MARK: - Mappable
-    init?(map: Map) {
-        
+    required convenience init?(map: Map) {
+          self.init()
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         title <- map["title"]
         poster <- map["poster_path"]
         overview <- map["overview"]
