@@ -3,7 +3,7 @@
 //  TMDbAPI-VIPER
 //
 //  Created by David Figueroa on 27/01/20.
-//  Copyright © 2020 Furkan Kurnaz. All rights reserved.
+//  Copyright © 2020 David Figueroa. All rights reserved.
 //
 
 import UIKit

@@ -335,7 +335,6 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + (movie?.poster ?? ""))
 
         cell.posterImageView?.af_setImage(withURL: baseUrl!)
-        
         cell.posterImageView?.tag = indexPath.row
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))

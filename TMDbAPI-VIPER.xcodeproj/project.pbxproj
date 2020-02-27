@@ -18,6 +18,7 @@
 		2755440423F0BBA000A6FE21 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755440323F0BBA000A6FE21 /* MovieGridCell.swift */; };
 		278AD3FC2327D05B001074FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FB2327D05B001074FE /* MainViewController.swift */; };
 		278AD3FE2327D067001074FE /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FD2327D067001074FE /* MainViewPresenter.swift */; };
+		2797AE8C2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797AE8B2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift */; };
 		27B1FC8823DF37B900519763 /* HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1FC8723DF37B900519763 /* HexToColor.swift */; };
 		313A804BBB282CA9B135C6D2 /* Pods_TMDbAPI_VIPER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2239C9DB61A17E88682C9FD /* Pods_TMDbAPI_VIPER.framework */; };
 		EA363BCE228EC0C00050F9B6 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA363BCD228EC0C00050F9B6 /* SearchModel.swift */; };
@@ -45,6 +46,16 @@
 		EACE2BFB229692AF00B2BFA1 /* MediaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACE2BFA229692AF00B2BFA1 /* MediaListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2797AE8E2407FE6D00DFD1F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA84A5D3228EA4EA009E7955 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA84A5DA228EA4EA009E7955;
+			remoteInfo = "TMDbAPI-VIPER";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		195C9FB877862643E8AF3A5D /* Pods-TMDbAPI-VIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbAPI-VIPER.release.xcconfig"; path = "Target Support Files/Pods-TMDbAPI-VIPER/Pods-TMDbAPI-VIPER.release.xcconfig"; sourceTree = "<group>"; };
 		2722E76023F0C62100C00720 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +70,9 @@
 		2755440323F0BBA000A6FE21 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		278AD3FB2327D05B001074FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		278AD3FD2327D067001074FE /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		2797AE892407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TMDbAPI-VIPER-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2797AE8B2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPI_VIPER_Tests.swift; sourceTree = "<group>"; };
+		2797AE8D2407FE6D00DFD1F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27B1FC8723DF37B900519763 /* HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToColor.swift; sourceTree = SOURCE_ROOT; };
 		74265E5B8D63B34C07DAD4C7 /* Pods-IMDbAPI-VIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.release.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.release.xcconfig"; sourceTree = "<group>"; };
 		939B35CDFD51C6550D09841D /* Pods-IMDbAPI-VIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.debug.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2797AE862407FE6D00DFD1F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA84A5D8228EA4EA009E7955 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +165,15 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		2797AE8A2407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2797AE8B2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift */,
+				2797AE8D2407FE6D00DFD1F3 /* Info.plist */,
+			);
+			path = "TMDbAPI-VIPER-Tests";
+			sourceTree = "<group>";
+		};
 		C697314A47ED47E66A421A6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				EA84A5DD228EA4EA009E7955 /* TMDbAPI-VIPER */,
+				2797AE8A2407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests */,
 				EA84A5DC228EA4EA009E7955 /* Products */,
 				08AB3F57A18351F1170F99EC /* Pods */,
 				C697314A47ED47E66A421A6E /* Frameworks */,
@@ -184,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				EA84A5DB228EA4EA009E7955 /* TMDbAPI-VIPER.app */,
+				2797AE892407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,7 +229,7 @@
 				EA84A5F4228EA59B009E7955 /* Views */,
 				EA84A5F3228EA593009E7955 /* Network */,
 				EA363BCB228EC08E0050F9B6 /* Models */,
-				EA84A5F1228EA53C009E7955 /* Scenes */,
+				EA84A5F1228EA53C009E7955 /* Modules */,
 				EA84A5F2228EA548009E7955 /* Resources */,
 				EA84A5F7228EA5BF009E7955 /* Supporting Files */,
 				EA84A5EA228EA4EB009E7955 /* Info.plist */,
@@ -215,7 +247,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		EA84A5F1228EA53C009E7955 /* Scenes */ = {
+		EA84A5F1228EA53C009E7955 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				2722E75F23F0C5E100C00720 /* MediaDetail */,
@@ -223,7 +255,7 @@
 				EA84A5F8228EA5E4009E7955 /* Search */,
 				EACE2BEA22968E1A00B2BFA1 /* MediaList */,
 			);
-			path = Scenes;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		EA84A5F2228EA548009E7955 /* Resources */ = {
@@ -323,6 +355,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2797AE882407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2797AE922407FE6D00DFD1F3 /* Build configuration list for PBXNativeTarget "TMDbAPI-VIPER-Tests" */;
+			buildPhases = (
+				2797AE852407FE6D00DFD1F3 /* Sources */,
+				2797AE862407FE6D00DFD1F3 /* Frameworks */,
+				2797AE872407FE6D00DFD1F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2797AE8F2407FE6D00DFD1F3 /* PBXTargetDependency */,
+			);
+			name = "TMDbAPI-VIPER-Tests";
+			productName = "TMDbAPI-VIPER-Tests";
+			productReference = 2797AE892407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EA84A5DA228EA4EA009E7955 /* TMDbAPI-VIPER */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA84A5ED228EA4EB009E7955 /* Build configuration list for PBXNativeTarget "TMDbAPI-VIPER" */;
@@ -348,10 +398,14 @@
 		EA84A5D3228EA4EA009E7955 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Furkan Kurnaz";
 				TargetAttributes = {
+					2797AE882407FE6D00DFD1F3 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = EA84A5DA228EA4EA009E7955;
+					};
 					EA84A5DA228EA4EA009E7955 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -372,11 +426,19 @@
 			projectRoot = "";
 			targets = (
 				EA84A5DA228EA4EA009E7955 /* TMDbAPI-VIPER */,
+				2797AE882407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2797AE872407FE6D00DFD1F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA84A5D9228EA4EA009E7955 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,6 +496,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2797AE852407FE6D00DFD1F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2797AE8C2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA84A5D7228EA4EA009E7955 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,6 +543,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2797AE8F2407FE6D00DFD1F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA84A5DA228EA4EA009E7955 /* TMDbAPI-VIPER */;
+			targetProxy = 2797AE8E2407FE6D00DFD1F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		EA84A5E2228EA4EA009E7955 /* Search.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -493,6 +571,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2797AE902407FE6D00DFD1F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YK5TPF6MZ5;
+				INFOPLIST_FILE = "TMDbAPI-VIPER-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.david.TMDbAPI-VIPER-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDbAPI-VIPER.app/TMDbAPI-VIPER";
+			};
+			name = Debug;
+		};
+		2797AE912407FE6D00DFD1F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YK5TPF6MZ5;
+				INFOPLIST_FILE = "TMDbAPI-VIPER-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.david.TMDbAPI-VIPER-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDbAPI-VIPER.app/TMDbAPI-VIPER";
+			};
+			name = Release;
+		};
 		EA84A5EB228EA4EB009E7955 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,6 +780,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2797AE922407FE6D00DFD1F3 /* Build configuration list for PBXNativeTarget "TMDbAPI-VIPER-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2797AE902407FE6D00DFD1F3 /* Debug */,
+				2797AE912407FE6D00DFD1F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EA84A5D6228EA4EA009E7955 /* Build configuration list for PBXProject "TMDbAPI-VIPER" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

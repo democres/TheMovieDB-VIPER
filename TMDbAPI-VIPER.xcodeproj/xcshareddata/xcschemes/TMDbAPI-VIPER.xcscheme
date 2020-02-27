@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2797AE882407FE6D00DFD1F3"
+               BuildableName = "TMDbAPI-VIPER-Tests.xctest"
+               BlueprintName = "TMDbAPI-VIPER-Tests"
+               ReferencedContainer = "container:TMDbAPI-VIPER.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
