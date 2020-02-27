@@ -2,17 +2,20 @@
 
 The Movie Database App is implemented using the VIPER architecture, uses offline cache and allows to reproduce videos. 
 
-## Architecture
+<p align="center">
+<img width="200" alt="Screen Shot 2020-02-27 at 10 20 50 AM" src="https://user-images.githubusercontent.com/20217459/75463591-05f09800-5954-11ea-8b27-5edb75ac35c9.gif">
+</p>
 
-``VIPER``
+## VIPER - Architecture
 
-- Mainly uses the VIPER Architecture and SOLID Principles.
+- Implements the VIPER Architecture and SOLID Principles.
 - Keep everything simple and focus on the Single Responsability principle.
 - Unit test added
 - Implements modularity and testability concepts to make easy the testing process.
 
-<img width="424" alt="Screen Shot 2020-02-27 at 10 20 50 AM" src="https://user-images.githubusercontent.com/20217459/75457881-09cbec80-594b-11ea-8cd3-001e0cdd9706.png">
-
+<p align="center">
+<img width="300" alt="Screen Shot 2020-02-27 at 10 20 50 AM" src="https://user-images.githubusercontent.com/20217459/75457881-09cbec80-594b-11ea-8cd3-001e0cdd9706.png">
+</p>
 
 ## Pods Used
 
