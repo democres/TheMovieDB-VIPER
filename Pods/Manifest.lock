@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AlamofireImage (3.5.2):
-    - Alamofire (~> 4.8)
-  - Kingfisher (5.7.1)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - ObjectMapper (3.5.1)
   - Realm (4.3.2):
     - Realm/Headers (= 4.3.2)
@@ -15,40 +15,39 @@ PODS:
   - RealmSwift (4.3.2):
     - Realm (= 4.3.2)
   - Result (4.1.0)
-  - YoutubePlayerView (1.1.0)
+  - RxSwift (4.5.0)
+  - YoutubePlayerView (1.2.1)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.5)
-  - Kingfisher
-  - Moya
+  - Moya/RxSwift
   - ObjectMapper (~> 3.4)
   - RealmSwift
   - YoutubePlayerView
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - Kingfisher
-    - Moya
-    - Result
   trunk:
+    - Alamofire
     - AlamofireImage
+    - Moya
     - ObjectMapper
     - Realm
     - RealmSwift
+    - Result
+    - RxSwift
     - YoutubePlayerView
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
-  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  YoutubePlayerView: ceed1ec64d8debcc5a12a66ec128880ecd2bbb60
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  YoutubePlayerView: 3870fc10f2db3f54156697757f44d304203bdc7e
 
-PODFILE CHECKSUM: 24b7dbdcea34eb9f138aa40a70915696556c25d9
+PODFILE CHECKSUM: 09587d6197d5a3a218d024faa1399614d28c093c
 
 COCOAPODS: 1.8.4

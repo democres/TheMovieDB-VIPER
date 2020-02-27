@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 
-
 final class SearchPresenter: SearchPresenterProtocol {
     
     private let view: SearchViewProtocol

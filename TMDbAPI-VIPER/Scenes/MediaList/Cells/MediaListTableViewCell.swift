@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class MediaListTableViewCell: UITableViewCell {
 
@@ -28,7 +27,8 @@ class MediaListTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         titleLabel.text = title
         typeLabel.text = type
-        mediaImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL))
+        let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL)
+        mediaImageView.af_setImage(withURL: baseUrl!)
     }
     
 }

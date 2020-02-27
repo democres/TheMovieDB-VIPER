@@ -89,8 +89,8 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         self.filterView.transform = CGAffineTransform(translationX: 0, y: self.view.bounds.height)
         hideFilterView()
         hidePickerView()
-        presenter.getYearDatas()
-        presenter.getTypeDatas()
+        presenter.getYearsData()
+        presenter.getTypesData()
         
         presenter.loadMovies()
         

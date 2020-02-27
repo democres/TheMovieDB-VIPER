@@ -7,11 +7,9 @@ target 'TMDbAPI-VIPER' do
 
   # Pods for TMDbAPI-VIPER
 pod 'YoutubePlayerView'
-pod 'Moya'
-pod 'Kingfisher'
+pod 'Moya/RxSwift'
 pod 'ObjectMapper', '~> 3.4'
 pod 'AlamofireImage', '~> 3.5'
 pod 'RealmSwift'
   
-
 end
