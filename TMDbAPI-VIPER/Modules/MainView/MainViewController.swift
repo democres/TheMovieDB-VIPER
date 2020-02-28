@@ -14,9 +14,11 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         
-        let searchViewController = SearchBuilder.make()
+        let searchVCPopular = SearchBuilder.make(categories: .popular)
+        let searchVCTopRated = SearchBuilder.make(categories: .topRated)
+        let searchVCUpcoming = SearchBuilder.make(categories: .upcoming)
         
-        self.setViewControllers([searchViewController], animated: false)
+        self.setViewControllers([searchVCPopular,searchVCTopRated,searchVCUpcoming], animated: false)
         self.selectedIndex = 0
 
     }

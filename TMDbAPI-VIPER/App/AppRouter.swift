@@ -21,11 +21,5 @@ final class AppRouter {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
-    
-    func showSearchViewController() {
-        let viewController = SearchBuilder.make()
-        let navigationController = BaseNavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-    }
+
 }

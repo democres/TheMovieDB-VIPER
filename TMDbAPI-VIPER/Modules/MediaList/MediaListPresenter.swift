@@ -23,7 +23,7 @@ class MediaListPresenter {
     }
     
     func showMediaDetail(media: Media) {
-        router.navigate(to: .show(media))
+        router.navigate(to: .showMediaDetail(media))
     }
 }
 

@@ -36,7 +36,7 @@ class MediaDetailViewController: UIViewController{
         super.viewDidLoad()
         
         presenter.load()
-        presenter.getMovieDetail(id: media.id ?? 0)
+        presenter.getMovieDetail(id: media.id )
         configureView()
     
     }
@@ -122,7 +122,7 @@ extension MediaDetailViewController: YoutubePlayerViewDelegate {
     
     func playerViewPreferredInitialLoadingView(_ playerView: YoutubePlayerView) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         return view
     }
 }

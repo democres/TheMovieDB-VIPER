@@ -6,10 +6,15 @@ target 'TMDbAPI-VIPER' do
   use_frameworks!
 
   # Pods for TMDbAPI-VIPER
-pod 'YoutubePlayerView'
-pod 'Moya/RxSwift'
-pod 'ObjectMapper', '~> 3.4'
-pod 'AlamofireImage', '~> 3.5'
-pod 'RealmSwift'
-  
+  pod 'YoutubePlayerView'
+  pod 'Moya/RxSwift'
+  pod 'ObjectMapper', '~> 3.4'
+  pod 'AlamofireImage', '~> 3.5'
+  pod 'RealmSwift'
+    
+  target 'TMDbAPI-VIPER-Tests' do
+    inherit! :search_paths
+
+  end
+
 end

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EA84A5DA228EA4EA009E7955"
-               BuildableName = "TMDbAPI-VIPER.app"
+               BuildableName = "The Movie DB.app"
                BlueprintName = "TMDbAPI-VIPER"
                ReferencedContainer = "container:TMDbAPI-VIPER.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA84A5DA228EA4EA009E7955"
-            BuildableName = "TMDbAPI-VIPER.app"
+            BuildableName = "The Movie DB.app"
             BlueprintName = "TMDbAPI-VIPER"
             ReferencedContainer = "container:TMDbAPI-VIPER.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA84A5DA228EA4EA009E7955"
-            BuildableName = "TMDbAPI-VIPER.app"
+            BuildableName = "The Movie DB.app"
             BlueprintName = "TMDbAPI-VIPER"
             ReferencedContainer = "container:TMDbAPI-VIPER.xcodeproj">
          </BuildableReference>

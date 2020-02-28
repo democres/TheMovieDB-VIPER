@@ -23,6 +23,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var filterButton: UIButton!
     
     // MARK: - Properties
     
@@ -53,26 +54,28 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         configureView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: - Handle Presenter Output
     
-    func handleOutput(_ output: SearchPresenterOutput) {
+    func handlePresenterOutput(_ output: SearchPresenterOutput) {
         switch output {
         case .allMovies(let movies):
             self.mediaArray = movies
             self.collectionView.reloadData()
-        case .updateTitle(let title):
-            self.title = title
+        case .updateTitle(let category):
+            self.title = category.title
+            self.tabBarItem.title = category.title
+            self.tabBarItem.image = category.image
         case .setLoading(let isLoading):
             UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
-        case .getMediaList(let searchResults):
+        case .searchResults(let searchResults):
             self.presenter.showMediaList(mediaArray: searchResults)
         case .showYears(let years):
             self.years = years
@@ -86,6 +89,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
     // MARK: - Helpers
     
     private func configureView() {
+        
         self.filterView.transform = CGAffineTransform(translationX: 0, y: self.view.bounds.height)
         hideFilterView()
         hidePickerView()
@@ -138,13 +142,22 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
                        options: .curveEaseInOut,
                        animations: {
                         self.filterView.transform = .identity
-        },
-                       completion: nil)
+        })
+        if #available(iOS 13.0, *) {
+            filterButton.setImage(UIImage(systemName:"arrowtriangle.up.square"), for: .normal)
+        } else {
+            filterButton.setImage(UIImage(named:"filter"), for: .normal)
+        }
     }
     
     private func hideFilterView() {
         UIView.animate(withDuration: 0.5) {
             self.filterView.transform = CGAffineTransform(translationX: 0, y: self.view.bounds.height)
+        }
+        if #available(iOS 13.0, *) {
+            filterButton.setImage(UIImage(systemName:"arrowtriangle.down.square"), for: .normal)
+        } else {
+            filterButton.setImage(UIImage(named:"filter"), for: .normal)
         }
     }
     
@@ -167,7 +180,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         if !isValidName {
             showAlert(title: "Error", message: "The name field cannot be blank.")
         } else {
-            presenter.load(title: searchTextField.text ?? "", type: selectedType, year: selectedYear)
+            presenter.search(title: searchTextField.text ?? "", type: selectedType, year: selectedYear)
         }
     }
     
@@ -188,6 +201,7 @@ final class SearchViewController: UIViewController, SearchViewProtocol {
         
         if isFilterViewShowing {
             showFilterView()
+            
         } else {
             hideFilterView()
         }

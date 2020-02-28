@@ -12,7 +12,6 @@ class BaseNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureNavigationBar()
         UITabBar.appearance().barTintColor =  UIColor(hexString: "#081c24")
         UITabBar.appearance().tintColor = .white

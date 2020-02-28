@@ -24,10 +24,10 @@ protocol MediaListPresenterProtocol: class {
 
 // MARK: - Router
 protocol MediaListRouterProtocol: class {
-    func navigate(to route: MediaListRoute)
+    func navigate(to route: MediaListRoutes)
 }
 
-enum MediaListRoute {
-    case show(Media)
+enum MediaListRoutes {
+    case showMediaDetail(Media)
 }
 

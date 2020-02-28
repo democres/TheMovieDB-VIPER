@@ -11,6 +11,7 @@ import RxSwift
 
 final class SearchPresenter: SearchPresenterProtocol {
     
+    private let category: Categories
     private let view: SearchViewProtocol
     private let interactor: SearchInteractorProtocol
     private let router: SearchRouterProtocol
@@ -19,14 +20,18 @@ final class SearchPresenter: SearchPresenterProtocol {
     
     init(view: SearchViewProtocol,
          interactor: SearchInteractorProtocol,
-         router: SearchRouterProtocol) {
+         router: SearchRouterProtocol,
+         category: Categories) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.category = category
         
-        self.interactor.delegate = self
+        self.interactor.interactorOutputDelegate = self
         
-        view.handleOutput(.updateTitle("TMDb Search"))
+        view.handlePresenterOutput(.updateTitle(category))
+        
     }
     
     func getYearsData() {
@@ -37,18 +42,27 @@ final class SearchPresenter: SearchPresenterProtocol {
         interactor.getYearsData()
     }
     
-    func load(title: String, type: String?, year: String?) {
-        interactor.load(title: title, type: type, year: year)
+    func search(title: String, type: String?, year: String?) {
+        interactor.search(title: title, type: type, year: year)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] mediaArray in
+                self?.view.handlePresenterOutput(.searchResults(mediaArray))
+        }, onError: { (error) in
+             print(error)
+             // HANDLE THE ERROR
+        })
+        .disposed(by: disposeBag)
     }
     
     func loadMovies() {
-        interactor.loadMovies().observeOn(MainScheduler.instance)
+        interactor.loadMovies(category: self.category)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] mediaArray in
-                self?.view.handleOutput(.allMovies(mediaArray))
+                self?.view.handlePresenterOutput(.allMovies(mediaArray))
         }, onError: { (error) in
             print(error)
             // HANDLE THE ERROR
-            self.view.handleOutput(.allMovies(self.interactor.fetchLocalData()))
+            self.view.handlePresenterOutput(.allMovies(self.interactor.fetchLocalData()))
         })
         .disposed(by: disposeBag)
     }
@@ -56,12 +70,12 @@ final class SearchPresenter: SearchPresenterProtocol {
     func validateNameField(name: String?) {
         if let name = name {
             if name.count > 0 {
-                view.handleOutput(.isValidName(true))
+                view.handlePresenterOutput(.isValidName(true))
             } else {
-                view.handleOutput(.isValidName(false))
+                view.handlePresenterOutput(.isValidName(false))
             }
         } else {
-            view.handleOutput(.isValidName(false))
+            view.handlePresenterOutput(.isValidName(false))
         }
     }
     
@@ -70,23 +84,23 @@ final class SearchPresenter: SearchPresenterProtocol {
     }
     
     func showMediaDetail(media: Media) {
-        router.navigate(to: .showDetail(media))
+        router.navigate(to: .showMediaDetail(media))
     }
 }
 
 extension SearchPresenter: SearchInteractorDelegate {
-    func handleOutput(_ output: SearchInteractorOutput) {
+    func handleInteractorOutput(_ output: SearchInteractorOutput) {
         switch output {
         case .setLoading(let isLoading):
-            view.handleOutput(.setLoading(isLoading))
+            view.handlePresenterOutput(.setLoading(isLoading))
         case .allMovies(let movies):
-            view.handleOutput(.allMovies(movies))
+            view.handlePresenterOutput(.allMovies(movies))
         case .getMediaList(let medias):
-            view.handleOutput(.getMediaList(medias))
+            view.handlePresenterOutput(.searchResults(medias))
         case .showYears(let years):
-            view.handleOutput(.showYears(years))
+            view.handlePresenterOutput(.showYears(years))
         case .showTypes(let types):
-            view.handleOutput(.showTypes(types))
+            view.handlePresenterOutput(.showTypes(types))
         }
     }
 }

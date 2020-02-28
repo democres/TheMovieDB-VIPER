@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vrJ-S8-gZe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vrJ-S8-gZe">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Popular-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="SearchViewController" customModule="TMDbAPI_VIPER" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,12 +251,13 @@
                             <outletCollection property="gestureRecognizers" destination="x7q-tg-7yD" appends="YES" id="a8L-yD-2Xv"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="search" systemItem="search" id="E66-hg-GdR">
-                        <color key="badgeColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="filter" id="E66-hg-GdR">
+                        <color key="badgeColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="wbA-WX-4gU" id="sTP-g5-lpx"/>
+                        <outlet property="filterButton" destination="k9W-Su-EEC" id="zfA-9I-HZQ"/>
                         <outlet property="filterView" destination="gPQ-3Z-qxx" id="OcI-Sp-uhD"/>
                         <outlet property="pickerContentView" destination="s5O-Gm-4uQ" id="24I-yC-6Md"/>
                         <outlet property="pickerView" destination="rCz-jE-uUT" id="6kP-sh-VqJ"/>
@@ -386,7 +387,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowtriangle.down.square" catalog="system" width="32" height="32"/>
+        <image name="arrowtriangle.down.square" catalog="system" width="64" height="56"/>
+        <image name="filter" width="16" height="16"/>
         <image name="imdb" width="408" height="161"/>
         <image name="search" width="512" height="512"/>
     </resources>

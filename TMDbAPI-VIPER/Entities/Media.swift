@@ -19,6 +19,8 @@ class Media: Object, Mappable {
     @objc dynamic var overview: String?
     @objc dynamic var mediaType: String?
     @objc dynamic var trailer: String?
+    @objc dynamic var releaseDate: String?
+    @objc dynamic var voteAverage: Float = 0.0
     
     
     //MARK: - Mappable
@@ -31,8 +33,10 @@ class Media: Object, Mappable {
         poster <- map["poster_path"]
         overview <- map["overview"]
         mediaType <- map["media_type"]
+        voteAverage <- map["vote_average"]
         trailer <- map["key"]
         id <- map["id"]
+        releaseDate <- map["release_date"]
     }
     
 }

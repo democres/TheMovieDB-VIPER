@@ -14,7 +14,7 @@ class MediaListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: MediaListPresenter!
-    
+
     var medias: [Media]?
 
     override func viewDidLoad() {

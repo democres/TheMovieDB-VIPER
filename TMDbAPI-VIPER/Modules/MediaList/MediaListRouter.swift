@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 final class MediaListRouter: MediaListRouterProtocol {
-    func navigate(to route: MediaListRoute) {
+    func navigate(to route: MediaListRoutes) {
         switch route {
-        case .show(let media):
+        case .showMediaDetail(let media):
             let mediaDetailView = MediaDetailBuilder.make(media: media)
             view.show(mediaDetailView, sender: nil)
         }

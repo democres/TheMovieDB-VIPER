@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1241E19A8DCB4B332AD52DEF /* Pods_TMDbAPI_VIPER_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E23E8C6F0ADE2AA7060FB2 /* Pods_TMDbAPI_VIPER_Tests.framework */; };
 		2722E76123F0C62100C00720 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722E76023F0C62100C00720 /* MediaDetailViewController.swift */; };
 		2722E76323F0C64000C00720 /* MediaDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722E76223F0C64000C00720 /* MediaDetailBuilder.swift */; };
 		2722E76523F0C64C00C00720 /* MediaDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722E76423F0C64C00C00720 /* MediaDetailContracts.swift */; };
@@ -21,7 +22,6 @@
 		2797AE8C2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797AE8B2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift */; };
 		27B1FC8823DF37B900519763 /* HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1FC8723DF37B900519763 /* HexToColor.swift */; };
 		313A804BBB282CA9B135C6D2 /* Pods_TMDbAPI_VIPER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2239C9DB61A17E88682C9FD /* Pods_TMDbAPI_VIPER.framework */; };
-		EA363BCE228EC0C00050F9B6 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA363BCD228EC0C00050F9B6 /* SearchModel.swift */; };
 		EA363BD0228EC0C60050F9B6 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA363BCF228EC0C60050F9B6 /* Media.swift */; };
 		EA84A5DF228EA4EA009E7955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA84A5DE228EA4EA009E7955 /* AppDelegate.swift */; };
 		EA84A5E1228EA4EA009E7955 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA84A5E0228EA4EA009E7955 /* SearchViewController.swift */; };
@@ -74,13 +74,14 @@
 		2797AE8B2407FE6D00DFD1F3 /* TMDbAPI_VIPER_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPI_VIPER_Tests.swift; sourceTree = "<group>"; };
 		2797AE8D2407FE6D00DFD1F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27B1FC8723DF37B900519763 /* HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToColor.swift; sourceTree = SOURCE_ROOT; };
+		48E23E8C6F0ADE2AA7060FB2 /* Pods_TMDbAPI_VIPER_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDbAPI_VIPER_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D9CA9678B826A740832358 /* Pods-TMDbAPI-VIPER-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbAPI-VIPER-Tests.debug.xcconfig"; path = "Target Support Files/Pods-TMDbAPI-VIPER-Tests/Pods-TMDbAPI-VIPER-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		74265E5B8D63B34C07DAD4C7 /* Pods-IMDbAPI-VIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.release.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.release.xcconfig"; sourceTree = "<group>"; };
 		939B35CDFD51C6550D09841D /* Pods-IMDbAPI-VIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.debug.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.debug.xcconfig"; sourceTree = "<group>"; };
 		B2239C9DB61A17E88682C9FD /* Pods_TMDbAPI_VIPER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDbAPI_VIPER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2D78BD7BAEEBD724945779 /* Pods-TMDbAPI-VIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbAPI-VIPER.debug.xcconfig"; path = "Target Support Files/Pods-TMDbAPI-VIPER/Pods-TMDbAPI-VIPER.debug.xcconfig"; sourceTree = "<group>"; };
-		EA363BCD228EC0C00050F9B6 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		EA363BCF228EC0C60050F9B6 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		EA84A5DB228EA4EA009E7955 /* TMDbAPI-VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDbAPI-VIPER.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA84A5DB228EA4EA009E7955 /* The Movie DB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Movie DB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA84A5DE228EA4EA009E7955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA84A5E0228EA4EA009E7955 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EA84A5E3228EA4EA009E7955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		EACE2BEF22968E3400B2BFA1 /* MediaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewController.swift; sourceTree = "<group>"; };
 		EACE2BF022968E3400B2BFA1 /* MediaListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListBuilder.swift; sourceTree = "<group>"; };
 		EACE2BFA229692AF00B2BFA1 /* MediaListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListTableViewCell.swift; sourceTree = "<group>"; };
+		FDD6F888BD23DD7C50312390 /* Pods-TMDbAPI-VIPER-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbAPI-VIPER-Tests.release.xcconfig"; path = "Target Support Files/Pods-TMDbAPI-VIPER-Tests/Pods-TMDbAPI-VIPER-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1241E19A8DCB4B332AD52DEF /* Pods_TMDbAPI_VIPER_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +134,8 @@
 				74265E5B8D63B34C07DAD4C7 /* Pods-IMDbAPI-VIPER.release.xcconfig */,
 				BA2D78BD7BAEEBD724945779 /* Pods-TMDbAPI-VIPER.debug.xcconfig */,
 				195C9FB877862643E8AF3A5D /* Pods-TMDbAPI-VIPER.release.xcconfig */,
+				72D9CA9678B826A740832358 /* Pods-TMDbAPI-VIPER-Tests.debug.xcconfig */,
+				FDD6F888BD23DD7C50312390 /* Pods-TMDbAPI-VIPER-Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -179,25 +184,17 @@
 			children = (
 				2754144A2327C7E500388B24 /* Moya.framework */,
 				B2239C9DB61A17E88682C9FD /* Pods_TMDbAPI_VIPER.framework */,
+				48E23E8C6F0ADE2AA7060FB2 /* Pods_TMDbAPI_VIPER_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA363BCB228EC08E0050F9B6 /* Models */ = {
+		EA363BCB228EC08E0050F9B6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				EA363BCC228EC0B10050F9B6 /* Search */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		EA363BCC228EC0B10050F9B6 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				EA363BCD228EC0C00050F9B6 /* SearchModel.swift */,
 				EA363BCF228EC0C60050F9B6 /* Media.swift */,
 			);
-			path = Search;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		EA84A5D2228EA4EA009E7955 = {
@@ -214,7 +211,7 @@
 		EA84A5DC228EA4EA009E7955 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA84A5DB228EA4EA009E7955 /* TMDbAPI-VIPER.app */,
+				EA84A5DB228EA4EA009E7955 /* The Movie DB.app */,
 				2797AE892407FE6D00DFD1F3 /* TMDbAPI-VIPER-Tests.xctest */,
 			);
 			name = Products;
@@ -228,7 +225,7 @@
 				EA84A5F5228EA5A3009E7955 /* Utils */,
 				EA84A5F4228EA59B009E7955 /* Views */,
 				EA84A5F3228EA593009E7955 /* Network */,
-				EA363BCB228EC08E0050F9B6 /* Models */,
+				EA363BCB228EC08E0050F9B6 /* Entities */,
 				EA84A5F1228EA53C009E7955 /* Modules */,
 				EA84A5F2228EA548009E7955 /* Resources */,
 				EA84A5F7228EA5BF009E7955 /* Supporting Files */,
@@ -250,9 +247,9 @@
 		EA84A5F1228EA53C009E7955 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2722E75F23F0C5E100C00720 /* MediaDetail */,
 				278AD3FA2327D038001074FE /* MainView */,
 				EA84A5F8228EA5E4009E7955 /* Search */,
+				2722E75F23F0C5E100C00720 /* MediaDetail */,
 				EACE2BEA22968E1A00B2BFA1 /* MediaList */,
 			);
 			path = Modules;
@@ -359,6 +356,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2797AE922407FE6D00DFD1F3 /* Build configuration list for PBXNativeTarget "TMDbAPI-VIPER-Tests" */;
 			buildPhases = (
+				B665E40EB71CEACA9476AE7C /* [CP] Check Pods Manifest.lock */,
 				2797AE852407FE6D00DFD1F3 /* Sources */,
 				2797AE862407FE6D00DFD1F3 /* Frameworks */,
 				2797AE872407FE6D00DFD1F3 /* Resources */,
@@ -389,7 +387,7 @@
 			);
 			name = "TMDbAPI-VIPER";
 			productName = "IMDbAPI-VIPER";
-			productReference = EA84A5DB228EA4EA009E7955 /* TMDbAPI-VIPER.app */;
+			productReference = EA84A5DB228EA4EA009E7955 /* The Movie DB.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -476,6 +474,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B665E40EB71CEACA9476AE7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMDbAPI-VIPER-Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA4F75C28CC618A566F743CF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,7 +528,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA363BCE228EC0C00050F9B6 /* SearchModel.swift in Sources */,
 				EACE2BF722968E3400B2BFA1 /* MediaListBuilder.swift in Sources */,
 				2755440423F0BBA000A6FE21 /* MovieGridCell.swift in Sources */,
 				274774E423F1910600692ED9 /* MediaDetailInteractor.swift in Sources */,
@@ -573,6 +592,7 @@
 /* Begin XCBuildConfiguration section */
 		2797AE902407FE6D00DFD1F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72D9CA9678B826A740832358 /* Pods-TMDbAPI-VIPER-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -588,12 +608,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDbAPI-VIPER.app/TMDbAPI-VIPER";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Movie DB.app/The Movie DB";
 			};
 			name = Debug;
 		};
 		2797AE912407FE6D00DFD1F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD6F888BD23DD7C50312390 /* Pods-TMDbAPI-VIPER-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -609,7 +630,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDbAPI-VIPER.app/TMDbAPI-VIPER";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Movie DB.app/The Movie DB";
 			};
 			name = Release;
 		};
@@ -748,7 +769,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidfigueroa.TMDb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Movie DB";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -771,7 +792,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidfigueroa.TMDb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Movie DB";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

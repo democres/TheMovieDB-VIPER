@@ -14,7 +14,7 @@ import RealmSwift
 
 class SearchInteractor: SearchInteractorProtocol {
     
-    weak var delegate: SearchInteractorDelegate?
+    var interactorOutputDelegate: SearchInteractorDelegate?
     
     let moyaProvider = MoyaProvider<TMDbAPIService>(plugins: [NetworkLoggerPlugin()])
     
@@ -27,7 +27,7 @@ class SearchInteractor: SearchInteractorProtocol {
             years.insert(String(year), at: 0)
         }
         
-        self.delegate?.handleOutput(.showYears(years))
+        self.interactorOutputDelegate?.handleInteractorOutput(.showYears(years))
     }
     
     func getTypesData() {
@@ -37,52 +37,52 @@ class SearchInteractor: SearchInteractorProtocol {
             "Episode"
         ]
         
-        self.delegate?.handleOutput(.showTypes(types))
+        self.interactorOutputDelegate?.handleInteractorOutput(.showTypes(types))
     }
     
-    func load(title: String, type: String?, year: String?) {
-        delegate?.handleOutput(.setLoading(true))
+    func search(title: String, type: String?, year: String?) -> Observable<[Media]>{
+        interactorOutputDelegate?.handleInteractorOutput(.setLoading(true))
         
-        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-        let provider = MoyaProvider<TMDbAPIService>(plugins: pluginsArray)
+        let target: TMDbAPIService
         
-        provider.request(.search(title: title, type: type, year: year)) { [weak self] response in
-            guard let self = self else { return }
-            self.delegate?.handleOutput(.setLoading(false))
-            
-            switch response {
-            case .success(let value):
-                let data = value.data
-                
-                do {
-                    
-                    let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
+        if type == "Series" || type == "Episode" {
+            target = .searchSeries(title: title, type: type, year: year)
+        } else {
+            target = .searchMovies(title: title, type: type, year: year)
+        }
+        
+        return moyaProvider.rx.request(target)
+                .debug()
+                .filterSuccessfulStatusCodes()
+                .asObservable()
+                .map{ response -> [Media] in
+                    let dataAux = try JSONSerialization.jsonObject(with: response.data, options: [])
                     if let json = dataAux as? [String: Any] {
-                        print(json)
                         if let results = json["results"] as? [[String: Any]] {
                             if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
-                                self.delegate?.handleOutput(.getMediaList(mediaArray))
+                                return mediaArray
                             }
                         }
                     }
-                    
-                } catch let error {
-                    print(error)
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        
-        
+                    return [Media]()
+                 }
     }
     
-    func loadMovies() -> Observable<[Media]>{
-        delegate?.handleOutput(.setLoading(true))
+    
+    func loadMovies(category: Categories) -> Observable<[Media]>{
+        interactorOutputDelegate?.handleInteractorOutput(.setLoading(true))
 
-        return moyaProvider.rx.request(.allMoviesRequest)
+        let target: TMDbAPIService
+        switch category {
+            case .popular:
+                target = .allMoviesRequest
+            case .topRated:
+                target = .allTopRated
+            case .upcoming:
+                target = .allUpcoming
+        }
+        
+        return moyaProvider.rx.request(target)
                     .debug()
                     .filterSuccessfulStatusCodes()
                     .asObservable()
@@ -100,25 +100,32 @@ class SearchInteractor: SearchInteractorProtocol {
                         
                         //RETURN LOCAL REALM CACHE IF EXISTS
                         return self.fetchLocalData()
-                        
                     }
     }
     
     func fetchLocalData() -> [Media] {
         var mediaArray = [Media]()
-        let realm = try! Realm()
-        realm.objects(Media.self).forEach { media in
-            mediaArray.append(media)
+        do {
+            let realm = try Realm()
+            realm.objects(Media.self).forEach { media in
+                mediaArray.append(media)
+            }
+        } catch let error {
+            print(error)
         }
         return mediaArray
     }
     
     func storeData(mediaArray: [Media]){
-        let realm = try! Realm()
-        try! realm.write {
-            mediaArray.forEach { media in
-                realm.add(media)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                mediaArray.forEach { media in
+                    realm.add(media)
+                }
             }
+        } catch let error {
+            print(error)
         }
     }
     

@@ -12,22 +12,45 @@ import RxSwift
 // MARK: - View
 
 protocol SearchViewProtocol: class {
-    func handleOutput(_ output: SearchPresenterOutput)
+    func handlePresenterOutput(_ output: SearchPresenterOutput)
+}
+
+enum Categories {
+    case popular
+    case topRated
+    case upcoming
+
+    var title : String {
+        switch self {
+        case .popular: return "Popular"
+        case .topRated: return "Top Rated"
+        case .upcoming: return "Upcoming"
+        }
+    }
+    
+    var image: UIImage {
+           switch self {
+               case .popular: return UIImage(named: "popular")!
+               case .topRated: return UIImage(named: "topRated")!
+               case .upcoming: return UIImage(named: "upcoming")!
+           }
+       }
+
 }
 
 // MARK: - Interactor
 
 protocol SearchInteractorProtocol: class {
-    var delegate: SearchInteractorDelegate? { get set }
-    func load(title: String, type: String?, year: String?)
-    func loadMovies() -> Observable<[Media]>
+    var interactorOutputDelegate: SearchInteractorDelegate? { get set }
+    func search(title: String, type: String?, year: String?) -> Observable<[Media]>
+    func loadMovies(category: Categories) -> Observable<[Media]>
     func getYearsData()
     func getTypesData()
     func fetchLocalData() -> [Media]
 }
 
 protocol SearchInteractorDelegate: class {
-    func handleOutput(_ output: SearchInteractorOutput)
+    func handleInteractorOutput(_ output: SearchInteractorOutput)
 }
 
 enum SearchInteractorOutput {
@@ -41,7 +64,7 @@ enum SearchInteractorOutput {
 // MARK: - Presenter
 
 protocol SearchPresenterProtocol: class {
-    func load(title: String, type: String?, year: String?)
+    func search(title: String, type: String?, year: String?)
     func loadMovies()
     func getYearsData()
     func getTypesData()
@@ -51,9 +74,9 @@ protocol SearchPresenterProtocol: class {
 }
 
 enum SearchPresenterOutput {
-    case updateTitle(String)
+    case updateTitle(Categories)
     case setLoading(Bool)
-    case getMediaList([Media])
+    case searchResults([Media])
     case allMovies([Media])
     case showYears([String])
     case showTypes([String])
@@ -68,5 +91,5 @@ protocol SearchRouterProtocol: class {
 
 enum SearchRoute {
     case list([Media])
-    case showDetail(Media)
+    case showMediaDetail(Media)
 }

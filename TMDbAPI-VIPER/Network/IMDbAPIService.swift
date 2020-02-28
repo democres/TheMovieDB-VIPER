@@ -9,8 +9,11 @@
 import Moya
 
 enum TMDbAPIService {
-    case search(title: String, type: String?, year: String?)
+    case searchMovies(title: String, type: String?, year: String?)
+    case searchSeries(title: String, type: String?, year: String?)
     case allMoviesRequest
+    case allTopRated
+    case allUpcoming
     case getMovieDetails(id: Int)
 }
 
@@ -22,10 +25,16 @@ extension TMDbAPIService: TargetType {
     
     var baseURL: URL {
         switch self {
-        case .search:
+        case .searchMovies:
             return URL(string: "https://api.themoviedb.org/3/search/movie")!
+        case .searchSeries:
+            return URL(string: "https://api.themoviedb.org/3/search/tv")!
         case .allMoviesRequest:
             return URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc")!
+        case .allTopRated:
+            return URL(string: "https://api.themoviedb.org/3/movie/top_rated")!
+        case .allUpcoming:
+            return URL(string: "https://api.themoviedb.org/3/movie/upcoming")!
         case .getMovieDetails(let id):
             return URL(string: "http://api.themoviedb.org/3/movie/\(id)/videos")!
         }
@@ -37,11 +46,17 @@ extension TMDbAPIService: TargetType {
     
     var method: Method {
         switch self {
-        case .search:
+        case .searchMovies:
+            return .get
+        case .searchSeries:
             return .get
         case .allMoviesRequest:
             return .get
-        case .getMovieDetails(let id):
+        case .getMovieDetails:
+            return .get
+        case .allTopRated:
+            return .get
+        case .allUpcoming:
             return .get
         }
     }
@@ -56,8 +71,7 @@ extension TMDbAPIService: TargetType {
     
     var parameters: [String : Any] {
         switch self {
-        case .search(let title, let type, let year):
-            
+        case .searchMovies(let title, let type, let year):
             
             var parameters = [String:Any]()
             parameters["api_key"] = API_KEY
@@ -66,24 +80,46 @@ extension TMDbAPIService: TargetType {
             if let type = type{
                 parameters["type"] = type
             }
-            
+
             if let year = year {
-                parameters["y"] = year
+                parameters["primary_release_year"] = year
             }
             
             return parameters
             
+        case .searchSeries(let title, let type, let year):
+            var parameters = [String:Any]()
+            parameters["api_key"] = API_KEY
+            parameters["query"] = title
+            
+            if let type = type{
+                parameters["type"] = type
+            }
+
+            if let year = year {
+                parameters["first_air_date_year"] = year
+            }
+            
+            return parameters
+        
         case .allMoviesRequest:
             var parameters = [String:Any]()
             parameters["api_key"] = API_KEY
-
             return parameters
         case .getMovieDetails:
             var parameters = [String:Any]()
             parameters["api_key"] = API_KEY
-
+            return parameters
+        case .allTopRated:
+            var parameters = [String:Any]()
+            parameters["api_key"] = API_KEY
+            return parameters
+        case .allUpcoming:
+            var parameters = [String:Any]()
+            parameters["api_key"] = API_KEY
             return parameters
         }
+        
     }
     
     var headers: [String : String]? {
